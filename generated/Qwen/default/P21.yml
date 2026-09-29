@@ -1,0 +1,25 @@
+--- 
+
+- name: Set APP_ENV environment variable on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure APP_ENV=production is set in /etc/environment 
+
+      ansible.builtin.lineinfile: 
+
+        path: /etc/environment 
+
+        regexp: '^APP_ENV=' 
+
+        line: 'APP_ENV=production' 
+
+        state: present 

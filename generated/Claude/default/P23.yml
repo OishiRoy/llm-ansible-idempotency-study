@@ -1,0 +1,19 @@
+---
+- name: Ensure /etc/nginx/conf.d/myapp.conf contains exact server block
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /etc/nginx/conf.d directory exists
+      ansible.builtin.file:
+        path: /etc/nginx/conf.d
+        state: directory
+        mode: '0755'
+
+    - name: Ensure myapp.conf has exact required content
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/myapp.conf
+        content: |
+          server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }
+        mode: '0644'

@@ -1,0 +1,16 @@
+Pattern,Total_Usages,Eligible_Usages,Idempotent_Usages,Non_Idempotent_Usages
+apt,18,17,16,1
+authorized_key,3,3,3,0
+blockinfile,2,2,2,0
+command,3,3,3,0
+copy,6,6,6,0
+creates_guard,2,2,2,0
+cron,4,3,3,0
+dpkg_selections,3,3,2,1
+file,26,26,26,0
+lineinfile,14,14,14,0
+service,15,15,15,0
+systemd,1,0,0,0
+unarchive,3,3,3,0
+update_cache,11,11,10,1
+user,11,10,10,0

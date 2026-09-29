@@ -1,0 +1,11 @@
+---
+- name: Create appuser account
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appuser exists
+      ansible.builtin.user:
+        name: appuser
+        state: present

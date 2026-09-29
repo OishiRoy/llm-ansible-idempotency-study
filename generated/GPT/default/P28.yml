@@ -1,0 +1,11 @@
+---
+- name: Ensure demo-data directory exists
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/demo-data exists
+      ansible.builtin.file:
+        path: /opt/demo-data
+        state: directory

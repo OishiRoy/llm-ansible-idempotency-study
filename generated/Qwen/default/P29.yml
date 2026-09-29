@@ -1,0 +1,11 @@
+---
+- name: Extract /tmp/myapp.tar.gz into /opt/app
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure contents of /tmp/myapp.tar.gz are extracted into /opt/app
+      ansible.builtin.unarchive:
+        src: /tmp/myapp.tar.gz
+        dest: /opt/app
+        remote_src: yes

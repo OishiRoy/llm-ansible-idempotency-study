@@ -1,0 +1,8 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /var/lib/myapp/deployment_record.txt contains a deployment timestamp when first created, while preserving an existing deployment record unchanged.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

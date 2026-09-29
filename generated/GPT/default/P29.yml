@@ -1,0 +1,17 @@
+---
+- name: Extract myapp archive into /opt/app
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/app directory exists
+      ansible.builtin.file:
+        path: /opt/app
+        state: directory
+
+    - name: Extract myapp archive
+      ansible.builtin.unarchive:
+        src: /tmp/myapp.tar.gz
+        dest: /opt/app
+        remote_src: true

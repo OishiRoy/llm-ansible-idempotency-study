@@ -1,0 +1,21 @@
+--- 
+
+- name: Ensure nginx service is started on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure nginx service is started 
+
+      ansible.builtin.service: 
+
+        name: nginx 
+
+        state: started

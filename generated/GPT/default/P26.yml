@@ -1,0 +1,13 @@
+---
+- name: Ensure myapp.local mapping exists exactly once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure 127.0.0.1 myapp.local mapping exists exactly once
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: '^\s*127\.0\.0\.1\s+myapp\.local\s*$'
+        line: '127.0.0.1 myapp.local'
+        state: present

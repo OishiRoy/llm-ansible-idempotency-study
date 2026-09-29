@@ -1,0 +1,21 @@
+--- 
+
+- name: Ensure nginx service is enabled at boot on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure nginx service is enabled at boot 
+
+      ansible.builtin.service: 
+
+        name: nginx 
+
+        enabled: yes 

@@ -1,0 +1,30 @@
+---
+- name: Ensure setup script runs only once, creating a marker file after success
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Check if setup marker file exists
+      ansible.builtin.stat:
+        path: /var/lib/myapp/setup.done
+      register: setup_marker
+
+    - name: Run setup script if marker file does not exist
+      ansible.builtin.command:
+        cmd: /usr/local/bin/setup-myapp.sh
+      when: not setup_marker.stat.exists
+
+    - name: Ensure /var/lib/myapp directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+      when: not setup_marker.stat.exists
+
+    - name: Create marker file after successful setup
+      ansible.builtin.file:
+        path: /var/lib/myapp/setup.done
+        state: touch
+        mode: '0644'
+      when: not setup_marker.stat.exists

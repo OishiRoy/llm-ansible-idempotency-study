@@ -1,0 +1,13 @@
+---
+- name: Set ownership of /opt/myapp
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp is owned by appuser and appgroup
+      ansible.builtin.file:
+        path: /opt/myapp
+        owner: appuser
+        group: appgroup
+        state: directory

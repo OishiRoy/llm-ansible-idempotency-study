@@ -1,0 +1,5 @@
+Model,Total_Cases,Eligible_Cases,Drift_Verified,Recovery_Success,Recovery_Verified,Post_Recovery_Success,Post_Recovery_Stable,Recovery_Rate_Percent,Post_Recovery_Stability_Rate_Percent
+GPT,12,12,12,12,12,12,12,100.00,100.00
+Claude,12,12,12,12,12,12,12,100.00,100.00
+Qwen,12,12,12,12,12,12,12,100.00,100.00
+Overall,36,36,36,36,36,36,36,100.00,100.00

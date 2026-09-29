@@ -1,0 +1,19 @@
+---
+- name: Update Nginx configuration and restart only when changed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update Nginx worker connections setting
+      ansible.builtin.lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^\s*worker_connections\s+'
+        line: '    worker_connections 1024;'
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted

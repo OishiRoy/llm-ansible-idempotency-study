@@ -1,0 +1,11 @@
+---
+- name: Create appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appgroup exists
+      ansible.builtin.group:
+        name: appgroup
+        state: present

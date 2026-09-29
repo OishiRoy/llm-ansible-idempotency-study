@@ -1,0 +1,21 @@
+--- 
+
+- name: Create group appgroup on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Create the group appgroup 
+
+      ansible.builtin.group: 
+
+        name: appgroup 
+
+        state: present 

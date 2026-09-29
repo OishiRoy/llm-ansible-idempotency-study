@@ -1,0 +1,24 @@
+---
+- name: Run myapp setup only once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure marker directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Run setup script if marker does not exist
+      ansible.builtin.command: /usr/local/bin/setup-myapp.sh
+      args:
+        creates: /var/lib/myapp/setup.done
+
+    - name: Ensure setup marker exists
+      ansible.builtin.file:
+        path: /var/lib/myapp/setup.done
+        state: touch
+        modification_time: preserve
+        access_time: preserve

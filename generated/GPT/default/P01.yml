@@ -1,0 +1,12 @@
+---
+- name: Install Nginx
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is installed
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true

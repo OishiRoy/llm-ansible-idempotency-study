@@ -1,0 +1,8 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/hosts contains the mapping 127.0.0.1 myapp.local exactly once.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

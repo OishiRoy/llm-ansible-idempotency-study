@@ -1,0 +1,8 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Install curl using the currently available package version, then hold that installed version so that future package-index updates — including newer curl releases — do not upgrade it.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

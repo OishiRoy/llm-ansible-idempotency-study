@@ -1,0 +1,24 @@
+---
+- name: Ensure deployment record file exists with a timestamp, preserving existing records
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /var/lib/myapp directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Check if deployment record file already exists
+      ansible.builtin.stat:
+        path: /var/lib/myapp/deployment_record.txt
+      register: deployment_record
+
+    - name: Create deployment record file with timestamp if it does not exist
+      ansible.builtin.copy:
+        dest: /var/lib/myapp/deployment_record.txt
+        content: "Deployment timestamp: {{ ansible_date_time.iso8601 }}\n"
+        mode: '0644'
+      when: not deployment_record.stat.exists

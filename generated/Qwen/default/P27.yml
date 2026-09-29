@@ -1,0 +1,11 @@
+---
+- name: Run one-time setup script on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Run setup script only if marker does not exist
+      ansible.builtin.command:
+        cmd: /usr/local/bin/setup-myapp.sh
+        creates: /var/lib/myapp/setup.done

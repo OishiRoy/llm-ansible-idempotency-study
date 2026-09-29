@@ -1,0 +1,20 @@
+---
+- name: Update Nginx configuration and restart only if changed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update worker_connections setting in nginx.conf
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^(\s*)worker_connections\s+\d+;'
+        line: '\1worker_connections 1024;'
+        backrefs: true
+      notify: Restart nginx
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: restarted

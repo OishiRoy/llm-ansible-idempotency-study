@@ -1,0 +1,7 @@
+Category,Total_Playbooks,Functionally_Correct,Eligible,Repeatedly_Idempotent,Non_Idempotent,Idempotency_Rate_Percent
+Configuration & Scheduled Tasks,15,14,14,14,0,100.00
+File & Directory Management,15,15,15,15,0,100.00
+Package Management,15,14,14,13,1,92.86
+Service Management,15,15,15,15,0,100.00
+System & Environment Management,15,15,15,15,0,100.00
+User & Permission Management,15,15,15,15,0,100.00

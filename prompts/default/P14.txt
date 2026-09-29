@@ -1,0 +1,10 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser's SSH authorized_keys file contains exactly the following key, replacing any previously configured key:
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

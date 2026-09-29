@@ -1,0 +1,11 @@
+---
+- name: Ensure the nginx service is started
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure nginx service is started
+      service:
+        name: nginx
+        state: started

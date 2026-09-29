@@ -1,0 +1,11 @@
+---
+- name: Ensure the nginx service is stopped
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure nginx service is stopped
+      service:
+        name: nginx
+        state: stopped

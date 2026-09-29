@@ -1,0 +1,25 @@
+--- 
+
+- name: Point symlink /opt/myapp/current at /opt/myapp/releases/v2 on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Point symlink /opt/myapp/current at /opt/myapp/releases/v2 
+
+      ansible.builtin.file: 
+
+        src: /opt/myapp/releases/v2 
+
+        dest: /opt/myapp/current 
+
+        state: link 
+
+        force: yes

@@ -1,0 +1,13 @@
+FROM ubuntu@sha256:3b06811b2afd352be909dd088a004166d665dc76d38b13eada33522a9d915c6f
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        python3=3.10.6-1~22.04.1 \
+        sudo=1.9.9-1ubuntu2.6 \
+        dpkg-dev=1.21.1ubuntu2.6 \
+        ansible=2.10.7+merged+base+2.10.8+dfsg-1 && \
+    rm -rf /var/lib/apt/lists/*
+
+CMD ["sleep", "infinity"]

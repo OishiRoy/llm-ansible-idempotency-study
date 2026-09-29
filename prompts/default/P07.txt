@@ -1,0 +1,11 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/myapp/app.conf contains the following configuration block, creating the file if it does not exist and preserving all other existing content:
+
+setting1=value1
+setting2=value2
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

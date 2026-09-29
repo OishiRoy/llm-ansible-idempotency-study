@@ -1,0 +1,154 @@
+{
+  "tasks": [
+    {
+      "id": "P01",
+      "category": "Package Management",
+      "task": "Ensure Nginx is installed."
+    },
+    {
+      "id": "P02",
+      "category": "Package Management",
+      "task": "Ensure Git is installed."
+    },
+    {
+      "id": "P03",
+      "category": "Package Management",
+      "task": "Install curl using the currently available package version, then hold that installed version so that future package-index updates \u2014 including newer curl releases \u2014 do not upgrade it."
+    },
+    {
+      "id": "P04",
+      "category": "Package Management",
+      "task": "Ensure unzip is installed."
+    },
+    {
+      "id": "P05",
+      "category": "Package Management",
+      "task": "Ensure Apache2 is absent."
+    },
+    {
+      "id": "P06",
+      "category": "File & Directory Management",
+      "task": "Ensure the directory /opt/myapp exists."
+    },
+    {
+      "id": "P07",
+      "category": "File & Directory Management",
+      "task": "Ensure /etc/myapp/app.conf contains the following configuration block, creating the file if it does not exist and preserving all other existing content:\nsetting1=value1\nsetting2=value2"
+    },
+    {
+      "id": "P08",
+      "category": "File & Directory Management",
+      "task": "Ensure /opt/myapp/app.conf has permission mode 0644."
+    },
+    {
+      "id": "P09",
+      "category": "File & Directory Management",
+      "task": "Ensure /opt/myapp/current is a symbolic link pointing to releases/v2."
+    },
+    {
+      "id": "P10",
+      "category": "File & Directory Management",
+      "task": "Ensure the line APP_MODE=production exists in /etc/myapp/app.conf."
+    },
+    {
+      "id": "P11",
+      "category": "User & Permission Management",
+      "task": "Ensure the user appuser exists."
+    },
+    {
+      "id": "P12",
+      "category": "User & Permission Management",
+      "task": "Ensure the group appgroup exists."
+    },
+    {
+      "id": "P13",
+      "category": "User & Permission Management",
+      "task": "Ensure appuser is a member of appgroup."
+    },
+    {
+      "id": "P14",
+      "category": "User & Permission Management",
+      "task": "Ensure appuser's SSH authorized_keys file contains exactly the following key, replacing any previously configured key:\nssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test"
+    },
+    {
+      "id": "P15",
+      "category": "User & Permission Management",
+      "task": "Ensure /opt/myapp is owned by appuser:appgroup."
+    },
+    {
+      "id": "P16",
+      "category": "Service Management",
+      "task": "Ensure Nginx is running."
+    },
+    {
+      "id": "P17",
+      "category": "Service Management",
+      "task": "Ensure Nginx is enabled to start at boot."
+    },
+    {
+      "id": "P18",
+      "category": "Service Management",
+      "task": "Ensure Nginx is stopped."
+    },
+    {
+      "id": "P19",
+      "category": "Service Management",
+      "task": "Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is set to 1024 and Nginx is restarted only when the configuration changes."
+    },
+    {
+      "id": "P20",
+      "category": "Service Management",
+      "task": "Ensure cron is installed and the cron service is running."
+    },
+    {
+      "id": "P21",
+      "category": "Configuration & Scheduled Tasks",
+      "task": "Ensure the environment variable APP_ENV=production persists across reboots and shell sessions."
+    },
+    {
+      "id": "P22",
+      "category": "Configuration & Scheduled Tasks",
+      "task": "Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is changed from 768 to 1024."
+    },
+    {
+      "id": "P23",
+      "category": "Configuration & Scheduled Tasks",
+      "task": "Ensure /etc/nginx/conf.d/myapp.conf contains exactly: server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }"
+    },
+    {
+      "id": "P24",
+      "category": "Configuration & Scheduled Tasks",
+      "task": "Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh, with exactly one such job configured."
+    },
+    {
+      "id": "P25",
+      "category": "Configuration & Scheduled Tasks",
+      "task": "Ensure the system timezone is set to Etc/UTC."
+    },
+    {
+      "id": "P26",
+      "category": "System & Environment Management",
+      "task": "Ensure /etc/hosts contains the mapping 127.0.0.1 myapp.local exactly once."
+    },
+    {
+      "id": "P27",
+      "category": "System & Environment Management",
+      "task": "Ensure /usr/local/bin/setup-myapp.sh is executed only when /var/lib/myapp/setup.done does not exist, and that the marker file exists after successful setup."
+    },
+    {
+      "id": "P28",
+      "category": "System & Environment Management",
+      "task": "Ensure the directory /opt/demo-data exists."
+    },
+    {
+      "id": "P29",
+      "category": "System & Environment Management",
+      "task": "Ensure the contents of /tmp/myapp.tar.gz are extracted into /opt/app."
+    },
+    {
+      "id": "P30",
+      "category": "System & Environment Management",
+      "task": "Ensure /var/lib/myapp/deployment_record.txt contains a deployment timestamp when first created, while preserving an existing deployment record unchanged."
+    }
+  ]
+}

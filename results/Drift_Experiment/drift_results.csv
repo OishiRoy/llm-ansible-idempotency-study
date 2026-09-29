@@ -1,0 +1,37 @@
+task_id,model,condition,category,syntax_valid,initial_run_success,initial_run_changed,initial_functional,drift_injected,drift_verified,recovery_success,recovery_changed,recovery_verified,post_recovery_success,post_recovery_changed,post_recovery_stable
+P02,GPT,default,Package Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P08,GPT,default,File and Directory Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P15,GPT,default,User and Access Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P19,GPT,default,Service and Application Configuration,Yes,Yes,2,Yes,Yes,Yes,Yes,2,Yes,Yes,0,Yes
+P21,GPT,default,System Configuration and Scheduling,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P28,GPT,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P02,Claude,default,Package Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P08,Claude,default,File and Directory Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P15,Claude,default,User and Access Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P19,Claude,default,Service and Application Configuration,Yes,Yes,2,Yes,Yes,Yes,Yes,2,Yes,Yes,0,Yes
+P21,Claude,default,System Configuration and Scheduling,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P28,Claude,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P02,Qwen,default,Package Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P08,Qwen,default,File and Directory Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P15,Qwen,default,User and Access Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P19,Qwen,default,Service and Application Configuration,Yes,Yes,2,Yes,Yes,Yes,Yes,2,Yes,Yes,0,Yes
+P21,Qwen,default,System Configuration and Scheduling,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P28,Qwen,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P09,GPT,default,File and Directory Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P14,GPT,default,User and Access Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P27,GPT,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P29,GPT,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P30,GPT,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P09,Claude,default,File and Directory Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P14,Claude,default,User and Access Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P27,Claude,default,State and Deployment Operations,Yes,Yes,2,Yes,Yes,Yes,Yes,2,Yes,Yes,0,Yes
+P29,Claude,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P30,Claude,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P09,Qwen,default,File and Directory Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P14,Qwen,default,User and Access Management,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P27,Qwen,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P29,Qwen,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P30,Qwen,default,State and Deployment Operations,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P24,GPT,default,System Configuration and Scheduling,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P24,Claude,default,System Configuration and Scheduling,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes
+P24,Qwen,default,System Configuration and Scheduling,Yes,Yes,1,Yes,Yes,Yes,Yes,1,Yes,Yes,0,Yes

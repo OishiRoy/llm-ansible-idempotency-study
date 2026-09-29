@@ -1,0 +1,11 @@
+---
+- name: Ensure Nginx service is started
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is started
+      ansible.builtin.service:
+        name: nginx
+        state: started

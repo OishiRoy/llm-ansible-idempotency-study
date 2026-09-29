@@ -1,0 +1,12 @@
+---
+- name: Create the directory /opt/myapp
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp directory exists
+      file:
+        path: /opt/myapp
+        state: directory
+        mode: '0755'

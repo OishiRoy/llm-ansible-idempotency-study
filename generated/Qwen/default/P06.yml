@@ -1,0 +1,21 @@
+--- 
+
+- name: Create /opt/myapp directory on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Create the directory /opt/myapp 
+
+      ansible.builtin.file: 
+
+        path: /opt/myapp 
+
+        state: directory

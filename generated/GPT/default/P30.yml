@@ -1,0 +1,26 @@
+---
+- name: Ensure deployment record is created only once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure deployment record directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Check whether deployment record exists
+      ansible.builtin.stat:
+        path: /var/lib/myapp/deployment_record.txt
+      register: deployment_record
+
+    - name: Create deployment record with timestamp on first creation
+      ansible.builtin.copy:
+        dest: /var/lib/myapp/deployment_record.txt
+        content: "{{ ansible_date_time.iso8601 }}\n"
+        owner: root
+        group: root
+        mode: '0644'
+      when: not deployment_record.stat.exists

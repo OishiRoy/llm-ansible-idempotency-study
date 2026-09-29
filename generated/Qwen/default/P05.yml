@@ -1,0 +1,19 @@
+--- 
+
+- name: Ensure apache2 is absent on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+  tasks: 
+
+    - name: Ensure apache2 package is absent 
+
+      ansible.builtin.apt: 
+
+        name: apache2 
+
+        state: absent

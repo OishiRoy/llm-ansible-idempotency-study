@@ -1,0 +1,11 @@
+---
+- name: Ensure the apache2 package is absent
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure apache2 is absent
+      apt:
+        name: apache2
+        state: absent

@@ -1,0 +1,23 @@
+--- 
+
+- name: Add appuser to appgroup on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Add appuser as a member of appgroup 
+
+      ansible.builtin.user: 
+
+        name: appuser 
+
+        groups: appgroup 
+
+        append: yes

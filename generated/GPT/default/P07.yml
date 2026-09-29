@@ -1,0 +1,15 @@
+---
+- name: Ensure myapp configuration block exists
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure configuration block is present in app.conf
+      ansible.builtin.blockinfile:
+        path: /etc/myapp/app.conf
+        create: true
+        marker: "# {mark} ANSIBLE MANAGED MYAPP CONFIG"
+        block: |
+          setting1=value1
+          setting2=value2

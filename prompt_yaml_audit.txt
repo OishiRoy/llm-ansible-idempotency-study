@@ -1,0 +1,2307 @@
+===== GPT P01 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install Nginx
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is installed
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: true
+===== GPT P02 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Git is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install Git
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Git is installed
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: true
+===== GPT P03 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Install curl using the currently available package version, then hold that installed version so that future package-index updates — including newer curl releases — do not upgrade it.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install and hold curl
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install curl using the currently available version
+      ansible.builtin.apt:
+        name: curl
+        state: present
+        update_cache: true
+
+    - name: Hold the installed curl version
+      ansible.builtin.dpkg_selections:
+        name: curl
+        selection: hold
+===== GPT P04 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure unzip is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure unzip is installed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install unzip
+      ansible.builtin.apt:
+        name: unzip
+        state: present
+        update_cache: true
+===== GPT P05 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Apache2 is absent.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure Apache2 is absent
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Remove Apache2 package
+      ansible.builtin.apt:
+        name: apache2
+        state: absent
+===== GPT P06 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the directory /opt/myapp exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Create /opt/myapp directory
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp directory exists
+      ansible.builtin.file:
+        path: /opt/myapp
+        state: directory
+===== GPT P07 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/myapp/app.conf contains the following configuration block, creating the file if it does not exist and preserving all other existing content:
+
+setting1=value1
+setting2=value2
+
+Requirements:
+YAML:
+---
+- name: Add configuration block to app.conf
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure configuration block is present
+      ansible.builtin.blockinfile:
+        path: /etc/myapp/app.conf
+        create: true
+        marker: "# {mark} ANSIBLE MANAGED MYAPP CONFIG"
+        block: |
+          setting1=value1
+          setting2=value2
+          setting3=value3
+===== GPT P08 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp/app.conf has permission mode 0644.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure app.conf has permission mode 0644
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set permission mode on app.conf
+      ansible.builtin.file:
+        path: /opt/myapp/app.conf
+        mode: '0644'
+===== GPT P09 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp/current is a symbolic link pointing to releases/v2.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Point current symlink to release v2
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure current symlink points to /opt/myapp/releases/v2
+      ansible.builtin.file:
+        src: /opt/myapp/releases/v2
+        dest: /opt/myapp/current
+        state: link
+        force: true
+===== GPT P10 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the line APP_MODE=production exists in /etc/myapp/app.conf.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure APP_MODE is set to production
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure APP_MODE=production exists in app.conf
+      ansible.builtin.lineinfile:
+        path: /etc/myapp/app.conf
+        line: "APP_MODE=production"
+        create: true
+        state: present
+===== GPT P11 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the user appuser exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Create appuser account
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appuser exists
+      ansible.builtin.user:
+        name: appuser
+        state: present
+===== GPT P12 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the group appgroup exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Create appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appgroup exists
+      ansible.builtin.group:
+        name: appgroup
+        state: present
+===== GPT P13 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser is a member of appgroup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Add appuser to appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appuser is a member of appgroup
+      ansible.builtin.user:
+        name: appuser
+        groups: appgroup
+        append: true
+===== GPT P14 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser's SSH authorized_keys file contains exactly the following key, replacing any previously configured key:
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test
+
+Requirements:
+- Target localhost using a local connection.
+YAML:
+---
+- name: Ensure appuser has exactly the specified SSH authorized key
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure exactly the specified authorized key is configured for appuser
+      ansible.posix.authorized_key:
+        user: appuser
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test"
+        state: present
+        exclusive: true
+        manage_dir: true
+
+===== GPT P15 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp is owned by appuser:appgroup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Set ownership of /opt/myapp
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp is owned by appuser and appgroup
+      ansible.builtin.file:
+        path: /opt/myapp
+        owner: appuser
+        group: appgroup
+        state: directory
+===== GPT P16 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is running.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure Nginx service is started
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is started
+      ansible.builtin.service:
+        name: nginx
+        state: started
+===== GPT P17 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is enabled to start at boot.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure Nginx service is enabled at boot
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is enabled at boot
+      ansible.builtin.service:
+        name: nginx
+        enabled: true
+===== GPT P18 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is stopped.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure Nginx service is stopped
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is stopped
+      ansible.builtin.service:
+        name: nginx
+        state: stopped
+===== GPT P19 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is set to 1024 and Nginx is restarted only when the configuration changes.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Update Nginx configuration and restart only when changed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update Nginx worker connections setting
+      ansible.builtin.lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^\s*worker_connections\s+'
+        line: '    worker_connections 1024;'
+      notify: Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      ansible.builtin.service:
+        name: nginx
+
+===== GPT P20 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure cron is installed and the cron service is running.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install cron and ensure service is running
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure cron package is installed
+      ansible.builtin.apt:
+        name: cron
+        state: present
+        update_cache: true
+
+    - name: Ensure cron service is running
+      ansible.builtin.service:
+        name: cron
+        state: started
+===== GPT P21 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the environment variable APP_ENV=production persists across reboots and shell sessions.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Set persistent APP_ENV environment variable
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure APP_ENV is set to production globally
+      ansible.builtin.lineinfile:
+        path: /etc/environment
+        regexp: '^APP_ENV='
+        line: 'APP_ENV=production'
+        state: present
+        create: true
+===== GPT P22 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is changed from 768 to 1024.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure Nginx worker_connections is set to 1024
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Change worker_connections from 768 to 1024
+      ansible.builtin.replace:
+        path: /etc/nginx/nginx.conf
+        regexp: 'worker_connections\s+768;'
+        replace: 'worker_connections 1024;'
+===== GPT P23 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/nginx/conf.d/myapp.conf contains exactly: server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure myapp Nginx configuration
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure myapp.conf contains the exact configuration
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/myapp.conf
+        content: "server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }\n"
+        owner: root
+        group: root
+        mode: '0644'
+===== GPT P24 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh, with exactly one such job configured.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure daily myapp backup cron job
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure myapp backup runs daily at 02:00
+      ansible.builtin.cron:
+        name: "myapp daily backup"
+        minute: "0"
+        hour: "2"
+        job: "/usr/local/bin/myapp-backup.sh"
+        state: present
+===== GPT P25 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the system timezone is set to Etc/UTC.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure system timezone is set to Etc/UTC
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set system timezone to Etc/UTC
+      community.general.timezone:
+        name: Etc/UTC
+
+===== GPT P26 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/hosts contains the mapping 127.0.0.1 myapp.local exactly once.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure myapp.local mapping exists exactly once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure 127.0.0.1 myapp.local mapping exists exactly once
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: '^\s*127\.0\.0\.1\s+myapp\.local\s*$'
+        line: '127.0.0.1 myapp.local'
+        state: present
+===== GPT P27 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /usr/local/bin/setup-myapp.sh is executed only when /var/lib/myapp/setup.done does not exist, and that the marker file exists after successful setup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Run myapp setup only once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure marker directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Run setup script if marker does not exist
+      ansible.builtin.command: /usr/local/bin/setup-myapp.sh
+      args:
+        creates: /var/lib/myapp/setup.done
+
+
+===== GPT P28 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the directory /opt/demo-data exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure demo-data directory exists
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/demo-data exists
+      ansible.builtin.file:
+        path: /opt/demo-data
+        state: directory
+===== GPT P29 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the contents of /tmp/myapp.tar.gz are extracted into /opt/app.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Extract myapp archive into /opt/app
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/app directory exists
+      ansible.builtin.file:
+        path: /opt/app
+        state: directory
+
+    - name: Extract myapp archive
+      ansible.builtin.unarchive:
+        src: /tmp/myapp.tar.gz
+        dest: /opt/app
+        remote_src: true
+===== GPT P30 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /var/lib/myapp/deployment_record.txt contains a deployment timestamp when first created, while preserving an existing deployment record unchanged.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure deployment record is created only once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure deployment record directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Check whether deployment record exists
+      ansible.builtin.stat:
+        path: /var/lib/myapp/deployment_record.txt
+      register: deployment_record
+
+
+===== Claude P01 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install Nginx
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+===== Claude P02 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Git is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install Git
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Install git
+      apt:
+        name: git
+        state: present
+===== Claude P03 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Install curl using the currently available package version, then hold that installed version so that future package-index updates — including newer curl releases — do not upgrade it.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install curl and hold it at the currently available version
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Install curl using the currently available version
+      apt:
+        name: curl
+        state: present
+
+    - name: Hold curl package to prevent future upgrades
+      dpkg_selections:
+
+===== Claude P04 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure unzip is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the unzip package is installed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Ensure unzip is installed
+      apt:
+        name: unzip
+        state: present
+===== Claude P05 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Apache2 is absent.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the apache2 package is absent
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure apache2 is absent
+      apt:
+        name: apache2
+        state: absent
+===== Claude P06 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the directory /opt/myapp exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Create the directory /opt/myapp
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp directory exists
+      file:
+        path: /opt/myapp
+        state: directory
+        mode: '0755'
+===== Claude P07 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/myapp/app.conf contains the following configuration block, creating the file if it does not exist and preserving all other existing content:
+
+setting1=value1
+setting2=value2
+
+Requirements:
+YAML:
+---
+- name: Ensure /etc/myapp/app.conf contains required configuration block
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /etc/myapp directory exists
+      ansible.builtin.file:
+        path: /etc/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Ensure app.conf file exists
+      ansible.builtin.file:
+        path: /etc/myapp/app.conf
+        state: touch
+        mode: '0644'
+
+===== Claude P08 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp/app.conf has permission mode 0644.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure /opt/myapp/app.conf has permission mode 0644
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set permissions on /opt/myapp/app.conf
+      ansible.builtin.file:
+        path: /opt/myapp/app.conf
+        mode: '0644'
+===== Claude P09 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp/current is a symbolic link pointing to releases/v2.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Point /opt/myapp/current symlink at /opt/myapp/releases/v2
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp/current symlinks to /opt/myapp/releases/v2
+      file:
+        src: /opt/myapp/releases/v2
+        dest: /opt/myapp/current
+        state: link
+        force: true
+===== Claude P10 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the line APP_MODE=production exists in /etc/myapp/app.conf.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the line APP_MODE=production exists in /etc/myapp/app.conf
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /etc/myapp directory exists
+      ansible.builtin.file:
+        path: /etc/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Ensure APP_MODE=production line exists in app.conf
+      ansible.builtin.lineinfile:
+        path: /etc/myapp/app.conf
+        regexp: '^APP_MODE='
+        line: 'APP_MODE=production'
+
+===== Claude P11 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the user appuser exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Create the user account appuser
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appuser user account exists
+      user:
+        name: appuser
+        state: present
+===== Claude P12 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the group appgroup exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Create the group appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appgroup group exists
+      group:
+        name: appgroup
+        state: present
+===== Claude P13 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser is a member of appgroup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Add appuser as a member of appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appgroup group exists
+      group:
+        name: appgroup
+        state: present
+
+    - name: Add appuser to appgroup
+      user:
+        name: appuser
+        groups: appgroup
+        append: true
+===== Claude P14 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser's SSH authorized_keys file contains exactly the following key, replacing any previously configured key:
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test
+
+Requirements:
+- Target localhost using a local connection.
+YAML:
+---
+- name: Ensure appuser's SSH authorized_keys contains exactly the specified key
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set exclusive authorized key for appuser
+      ansible.posix.authorized_key:
+        user: appuser
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test"
+        state: present
+        exclusive: true
+
+===== Claude P15 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp is owned by appuser:appgroup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Set ownership of /opt/myapp to appuser:appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set ownership on /opt/myapp
+      file:
+        path: /opt/myapp
+        owner: appuser
+        group: appgroup
+===== Claude P16 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is running.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the nginx service is started
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure nginx service is started
+      service:
+        name: nginx
+        state: started
+===== Claude P17 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is enabled to start at boot.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the nginx service is enabled at boot
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure nginx service is enabled at boot
+      service:
+        name: nginx
+        enabled: true
+===== Claude P18 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is stopped.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the nginx service is stopped
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure nginx service is stopped
+      service:
+        name: nginx
+        state: stopped
+===== Claude P19 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is set to 1024 and Nginx is restarted only when the configuration changes.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Update Nginx configuration and restart only if changed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update worker_connections setting in nginx.conf
+      lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^(\s*)worker_connections\s+\d+;'
+        line: '\1worker_connections 1024;'
+        backrefs: true
+      notify: Restart nginx
+
+  handlers:
+    - name: Restart nginx
+      service:
+
+===== Claude P20 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure cron is installed and the cron service is running.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install cron package and ensure the cron service is running
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Install cron package
+      apt:
+        name: cron
+        state: present
+
+    - name: Ensure cron service is running
+      service:
+
+===== Claude P21 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the environment variable APP_ENV=production persists across reboots and shell sessions.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Set APP_ENV=production for all users persistently
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure APP_ENV=production is set system-wide
+      lineinfile:
+        path: /etc/environment
+        regexp: '^APP_ENV='
+        line: 'APP_ENV=production'
+        state: present
+===== Claude P22 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is changed from 768 to 1024.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure daily backup cron job exists
+      ansible.builtin.cron:
+        name: "myapp daily backup"
+        minute: "0"
+        hour: "2"
+        job: "/usr/local/bin/myapp-backup.sh"
+        state: present
+        user: root
+===== Claude P23 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/nginx/conf.d/myapp.conf contains exactly: server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure /etc/nginx/conf.d/myapp.conf contains exact server block
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /etc/nginx/conf.d directory exists
+      ansible.builtin.file:
+        path: /etc/nginx/conf.d
+        state: directory
+        mode: '0755'
+
+    - name: Ensure myapp.conf has exact required content
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/myapp.conf
+        content: |
+          server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }
+
+===== Claude P24 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh, with exactly one such job configured.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure daily backup cron job exists
+      ansible.builtin.cron:
+        name: "myapp daily backup"
+        minute: "0"
+        hour: "2"
+        job: "/usr/local/bin/myapp-backup.sh"
+        state: present
+        user: root
+===== Claude P25 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the system timezone is set to Etc/UTC.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the system timezone is set to Etc/UTC
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set timezone to Etc/UTC
+      community.general.timezone:
+        name: Etc/UTC
+
+===== Claude P26 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/hosts contains the mapping 127.0.0.1 myapp.local exactly once.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure /etc/hosts contains the mapping 127.0.0.1 myapp.local exactly once
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure 127.0.0.1 myapp.local mapping exists in /etc/hosts
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: '^127\.0\.0\.1\s+myapp\.local\s*$'
+        line: '127.0.0.1 myapp.local'
+        state: present
+===== Claude P27 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /usr/local/bin/setup-myapp.sh is executed only when /var/lib/myapp/setup.done does not exist, and that the marker file exists after successful setup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure setup script runs only once, creating a marker file after success
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Check if setup marker file exists
+      ansible.builtin.stat:
+        path: /var/lib/myapp/setup.done
+      register: setup_marker
+
+    - name: Run setup script if marker file does not exist
+      ansible.builtin.command:
+        cmd: /usr/local/bin/setup-myapp.sh
+      when: not setup_marker.stat.exists
+
+    - name: Ensure /var/lib/myapp directory exists
+
+===== Claude P28 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the directory /opt/demo-data exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the directory /opt/demo-data exists
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/demo-data directory exists
+      ansible.builtin.file:
+        path: /opt/demo-data
+        state: directory
+        mode: '0755'
+===== Claude P29 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the contents of /tmp/myapp.tar.gz are extracted into /opt/app.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure the contents of /tmp/myapp.tar.gz are extracted into /opt/app
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/app directory exists
+      ansible.builtin.file:
+        path: /opt/app
+        state: directory
+        mode: '0755'
+
+    - name: Extract /tmp/myapp.tar.gz into /opt/app
+      ansible.builtin.unarchive:
+        src: /tmp/myapp.tar.gz
+        dest: /opt/app
+        remote_src: true
+===== Claude P30 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /var/lib/myapp/deployment_record.txt contains a deployment timestamp when first created, while preserving an existing deployment record unchanged.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure deployment record file exists with a timestamp, preserving existing records
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /var/lib/myapp directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+        mode: '0755'
+
+    - name: Check if deployment record file already exists
+      ansible.builtin.stat:
+        path: /var/lib/myapp/deployment_record.txt
+      register: deployment_record
+
+
+===== Qwen P01 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install Nginx on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Ensure Nginx is started and enabled
+
+===== Qwen P02 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Git is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install Git on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Git
+      ansible.builtin.apt:
+        name: git
+        state: present
+===== Qwen P03 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Install curl using the currently available package version, then hold that installed version so that future package-index updates — including newer curl releases — do not upgrade it.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Install and hold curl on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+  
+  tasks:
+    - name: Update apt cache and install curl
+      ansible.builtin.apt:
+        name: curl
+        state: present
+        update_cache: true
+
+    - name: Hold curl package to prevent future upgrades
+      ansible.builtin.dpkg_selections:
+        name: curl
+        selection: hold
+
+===== Qwen P04 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure unzip is installed.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure unzip is installed
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Install unzip package
+      ansible.builtin.apt:
+        name: unzip
+        state: present
+===== Qwen P05 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Apache2 is absent.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Ensure apache2 is absent on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+  tasks: 
+
+    - name: Ensure apache2 package is absent 
+
+      ansible.builtin.apt: 
+
+        name: apache2 
+
+
+===== Qwen P06 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the directory /opt/myapp exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Create /opt/myapp directory on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Create the directory /opt/myapp 
+
+      ansible.builtin.file: 
+
+
+===== Qwen P07 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/myapp/app.conf contains the following configuration block, creating the file if it does not exist and preserving all other existing content:
+
+setting1=value1
+setting2=value2
+
+Requirements:
+YAML:
+--- 
+
+- name: Add configuration block to /etc/myapp/app.conf on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure /etc/myapp directory exists 
+
+      ansible.builtin.file: 
+
+
+===== Qwen P08 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp/app.conf has permission mode 0644.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure /opt/myapp/app.conf has permission mode 0644
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure /opt/myapp/app.conf has permission mode 0644
+      ansible.builtin.file:
+        path: /opt/myapp/app.conf
+        mode: '0644'
+===== Qwen P09 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp/current is a symbolic link pointing to releases/v2.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Point symlink /opt/myapp/current at /opt/myapp/releases/v2 on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Point symlink /opt/myapp/current at /opt/myapp/releases/v2 
+
+      ansible.builtin.file: 
+
+
+===== Qwen P10 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the line APP_MODE=production exists in /etc/myapp/app.conf.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure APP_MODE=production in /etc/myapp/app.conf
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure APP_MODE=production exists in /etc/myapp/app.conf
+      ansible.builtin.lineinfile:
+        path: /etc/myapp/app.conf
+        regexp: '^APP_MODE='
+        line: 'APP_MODE=production'
+        state: present
+===== Qwen P11 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the user appuser exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Create user appuser on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Create the user account appuser 
+
+      ansible.builtin.user: 
+
+
+===== Qwen P12 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the group appgroup exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Create group appgroup on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Create the group appgroup 
+
+      ansible.builtin.group: 
+
+
+===== Qwen P13 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser is a member of appgroup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Add appuser to appgroup on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Add appuser as a member of appgroup 
+
+      ansible.builtin.user: 
+
+
+===== Qwen P14 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure appuser's SSH authorized_keys file contains exactly the following key, replacing any previously configured key:
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test
+
+Requirements:
+- Target localhost using a local connection.
+YAML:
+---
+- name: Configure appuser SSH authorized_keys
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure appuser's authorized_keys contains exactly the specified key
+      ansible.posix.authorized_key:
+        user: appuser
+        state: present
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test"
+        exclusive: true
+
+===== Qwen P15 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /opt/myapp is owned by appuser:appgroup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Set ownership of /opt/myapp to appuser:appgroup on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Set ownership of /opt/myapp to appuser:appgroup 
+
+      ansible.builtin.file: 
+
+
+===== Qwen P16 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is running.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Ensure nginx service is started on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure nginx service is started 
+
+      ansible.builtin.service: 
+
+
+===== Qwen P17 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is enabled to start at boot.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Ensure nginx service is enabled at boot on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure nginx service is enabled at boot 
+
+      ansible.builtin.service: 
+
+
+===== Qwen P18 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure Nginx is stopped.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Ensure nginx service is stopped on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure nginx service is stopped 
+
+      ansible.builtin.service: 
+
+
+===== Qwen P19 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is set to 1024 and Nginx is restarted only when the configuration changes.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Configure Nginx worker_connections and restart on change
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure worker_connections is set to 1024
+      ansible.builtin.lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^\s*worker_connections\s+\d+\s*;$'
+        line: '    worker_connections 1024;'
+      notify: Restart nginx
+
+  handlers:
+    - name: Restart nginx
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+===== Qwen P20 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure cron is installed and the cron service is running.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Install cron and ensure service is running on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Install cron package 
+
+      ansible.builtin.apt: 
+
+
+===== Qwen P21 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the environment variable APP_ENV=production persists across reboots and shell sessions.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+--- 
+
+- name: Set APP_ENV environment variable on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Ensure APP_ENV=production is set in /etc/environment 
+
+      ansible.builtin.lineinfile: 
+
+
+===== Qwen P22 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the Nginx worker_connections value in /etc/nginx/nginx.conf is changed from 768 to 1024.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure Nginx worker_connections is 1024
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Change worker_connections from 768 to 1024
+      ansible.builtin.lineinfile:
+        path: /etc/nginx/nginx.conf
+        regexp: '^\s*worker_connections\s+\d+\s*;$'
+        line: 'worker_connections 1024;'
+        state: present
+===== Qwen P23 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/nginx/conf.d/myapp.conf contains exactly: server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure myapp.conf contains exact content
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure /etc/nginx/conf.d/myapp.conf contains exact content
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/myapp.conf
+        content: |
+          server {
+              listen 8080;
+              server_name localhost;
+              location / {
+                  return 200 'myapp';
+              }
+          }
+===== Qwen P24 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh, with exactly one such job configured.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure daily cron job for myapp-backup.sh
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure daily cron job exists at 02:00
+      ansible.builtin.cron:
+        name: "myapp-backup-job"
+        minute: "0"
+        hour: "2"
+        job: "/usr/local/bin/myapp-backup.sh"
+        state: present
+===== Qwen P25 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the system timezone is set to Etc/UTC.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure system timezone is set to Etc/UTC
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Set system timezone to Etc/UTC
+      community.general.timezone:
+        name: Etc/UTC
+
+===== Qwen P26 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /etc/hosts contains the mapping 127.0.0.1 myapp.local exactly once.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure /etc/hosts contains 127.0.0.1 myapp.local exactly once
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure 127.0.0.1 myapp.local mapping exists exactly once in /etc/hosts
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: '^127\.0\.0\.1\s+myapp\.local$'
+        line: '127.0.0.1 myapp.local'
+        state: present
+===== Qwen P27 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /usr/local/bin/setup-myapp.sh is executed only when /var/lib/myapp/setup.done does not exist, and that the marker file exists after successful setup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Run one-time setup script on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Run setup script only if marker does not exist
+      ansible.builtin.command:
+        cmd: /usr/local/bin/setup-myapp.sh
+        creates: /var/lib/myapp/setup.done
+===== Qwen P28 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the directory /opt/demo-data exists.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure /opt/demo-data exists
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure /opt/demo-data directory exists
+      ansible.builtin.file:
+        path: /opt/demo-data
+        state: directory
+===== Qwen P29 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure the contents of /tmp/myapp.tar.gz are extracted into /opt/app.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Extract /tmp/myapp.tar.gz into /opt/app
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure contents of /tmp/myapp.tar.gz are extracted into /opt/app
+      ansible.builtin.unarchive:
+        src: /tmp/myapp.tar.gz
+        dest: /opt/app
+        remote_src: yes
+===== Qwen P30 =====
+PROMPT:
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /var/lib/myapp/deployment_record.txt contains a deployment timestamp when first created, while preserving an existing deployment record unchanged.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.
+YAML:
+---
+- name: Ensure deployment record timestamp
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure /var/lib/myapp directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+
+    - name: Ensure deployment record contains timestamp when first created
+      ansible.builtin.copy:
+        dest: /var/lib/myapp/deployment_record.txt
+        content: "{{ ansible_date_time.iso8601 }}"
+        force: false

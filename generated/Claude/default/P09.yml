@@ -1,0 +1,13 @@
+---
+- name: Point /opt/myapp/current symlink at /opt/myapp/releases/v2
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp/current symlinks to /opt/myapp/releases/v2
+      file:
+        src: /opt/myapp/releases/v2
+        dest: /opt/myapp/current
+        state: link
+        force: true

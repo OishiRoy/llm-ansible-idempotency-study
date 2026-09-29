@@ -1,0 +1,13 @@
+---
+- name: Ensure appuser's SSH authorized_keys contains exactly the specified key
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set exclusive authorized key for appuser
+      ansible.posix.authorized_key:
+        user: appuser
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test"
+        state: present
+        exclusive: true

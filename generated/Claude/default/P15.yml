@@ -1,0 +1,12 @@
+---
+- name: Set ownership of /opt/myapp to appuser:appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set ownership on /opt/myapp
+      file:
+        path: /opt/myapp
+        owner: appuser
+        group: appgroup

@@ -1,0 +1,17 @@
+---
+- name: Install and hold curl on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+  
+  tasks:
+    - name: Update apt cache and install curl
+      ansible.builtin.apt:
+        name: curl
+        state: present
+        update_cache: true
+
+    - name: Hold curl package to prevent future upgrades
+      ansible.builtin.dpkg_selections:
+        name: curl
+        selection: hold

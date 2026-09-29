@@ -1,0 +1,11 @@
+---
+- name: Ensure /opt/myapp/app.conf has permission mode 0644
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Set permissions on /opt/myapp/app.conf
+      ansible.builtin.file:
+        path: /opt/myapp/app.conf
+        mode: '0644'

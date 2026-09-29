@@ -1,0 +1,17 @@
+---
+- name: Ensure myapp.conf contains exact content
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure /etc/nginx/conf.d/myapp.conf contains exact content
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/myapp.conf
+        content: |
+          server {
+              listen 8080;
+              server_name localhost;
+              location / {
+                  return 200 'myapp';
+              }
+          }

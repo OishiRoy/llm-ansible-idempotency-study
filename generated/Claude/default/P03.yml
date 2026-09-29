@@ -1,0 +1,20 @@
+---
+- name: Install curl and hold it at the currently available version
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Install curl using the currently available version
+      apt:
+        name: curl
+        state: present
+
+    - name: Hold curl package to prevent future upgrades
+      dpkg_selections:
+        name: curl
+        selection: hold

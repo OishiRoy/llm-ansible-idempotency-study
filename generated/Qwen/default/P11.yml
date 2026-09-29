@@ -1,0 +1,21 @@
+--- 
+
+- name: Create user appuser on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Create the user account appuser 
+
+      ansible.builtin.user: 
+
+        name: appuser 
+
+        state: present

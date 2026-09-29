@@ -1,0 +1,11 @@
+---
+- name: Ensure Nginx service is stopped
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is stopped
+      ansible.builtin.service:
+        name: nginx
+        state: stopped

@@ -1,0 +1,11 @@
+---
+- name: Ensure the nginx service is enabled at boot
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure nginx service is enabled at boot
+      service:
+        name: nginx
+        enabled: true

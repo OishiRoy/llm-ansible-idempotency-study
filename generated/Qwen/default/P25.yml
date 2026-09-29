@@ -1,0 +1,9 @@
+---
+- name: Ensure system timezone is set to Etc/UTC
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Set system timezone to Etc/UTC
+      community.general.timezone:
+        name: Etc/UTC

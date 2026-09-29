@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.vscode/
+.idea/
+.DS_Store
+backups/
+*_backup*
+*.backup*
+logs/
+results/GPT/test.txt
+# Archived and old experimental files
+results/Old_2Run_Results/
+scripts/archive/

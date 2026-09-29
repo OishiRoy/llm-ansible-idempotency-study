@@ -1,0 +1,2 @@
+task_id,model,condition,syntax_valid,run1_success,functional_correct,run1_changed,run2_success,run2_changed,run3_success,run3_changed,run4_success,run4_changed,run5_success,run5_changed,repeated_idempotent
+P01,GPT,default,Yes,Yes,Yes,1,Yes,0,Yes,0,Yes,0,Yes,0,Yes

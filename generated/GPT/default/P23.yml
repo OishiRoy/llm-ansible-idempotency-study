@@ -1,0 +1,14 @@
+---
+- name: Ensure myapp Nginx configuration
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure myapp.conf contains the exact configuration
+      ansible.builtin.copy:
+        dest: /etc/nginx/conf.d/myapp.conf
+        content: "server { listen 8080; server_name localhost; location / { return 200 'myapp'; } }\n"
+        owner: root
+        group: root
+        mode: '0644'

@@ -1,0 +1,4 @@
+Model,Total_Playbooks,Functionally_Correct,Eligible,Repeatedly_Idempotent,Non_Idempotent,Idempotency_Rate_Percent
+GPT,30,30,30,30,0,100.00
+Claude,30,29,29,28,1,96.55
+Qwen,30,29,29,29,0,100.00

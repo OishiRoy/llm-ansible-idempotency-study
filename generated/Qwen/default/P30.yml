@@ -1,0 +1,16 @@
+---
+- name: Ensure deployment record timestamp
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure /var/lib/myapp directory exists
+      ansible.builtin.file:
+        path: /var/lib/myapp
+        state: directory
+
+    - name: Ensure deployment record contains timestamp when first created
+      ansible.builtin.copy:
+        dest: /var/lib/myapp/deployment_record.txt
+        content: "{{ ansible_date_time.iso8601 }}"
+        force: false

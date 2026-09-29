@@ -1,0 +1,8 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure /usr/local/bin/setup-myapp.sh is executed only when /var/lib/myapp/setup.done does not exist, and that the marker file exists after successful setup.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

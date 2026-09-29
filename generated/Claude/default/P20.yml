@@ -1,0 +1,20 @@
+---
+- name: Install cron package and ensure the cron service is running
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: true
+
+    - name: Install cron package
+      apt:
+        name: cron
+        state: present
+
+    - name: Ensure cron service is running
+      service:
+        name: cron
+        state: started

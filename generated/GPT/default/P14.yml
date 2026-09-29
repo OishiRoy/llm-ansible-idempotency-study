@@ -1,0 +1,14 @@
+---
+- name: Ensure appuser has exactly the specified SSH authorized key
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure exactly the specified authorized key is configured for appuser
+      ansible.posix.authorized_key:
+        user: appuser
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAITestKeyForResearchOnly appuser@test"
+        state: present
+        exclusive: true
+        manage_dir: true

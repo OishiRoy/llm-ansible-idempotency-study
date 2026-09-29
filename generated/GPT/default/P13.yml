@@ -1,0 +1,12 @@
+---
+- name: Add appuser to appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appuser is a member of appgroup
+      ansible.builtin.user:
+        name: appuser
+        groups: appgroup
+        append: true

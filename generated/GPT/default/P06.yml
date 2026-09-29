@@ -1,0 +1,11 @@
+---
+- name: Create /opt/myapp directory
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure /opt/myapp directory exists
+      ansible.builtin.file:
+        path: /opt/myapp
+        state: directory

@@ -1,0 +1,12 @@
+---
+- name: Ensure Nginx worker_connections is set to 1024
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Change worker_connections from 768 to 1024
+      ansible.builtin.replace:
+        path: /etc/nginx/nginx.conf
+        regexp: 'worker_connections\s+768;'
+        replace: 'worker_connections 1024;'

@@ -1,0 +1,8 @@
+Generate a complete Ansible playbook for Ubuntu 22.04 that performs the following task:
+
+Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh, with exactly one such job configured.
+
+Requirements:
+- Target localhost using a local connection.
+- Use become: true where necessary.
+- Return only the complete YAML playbook.

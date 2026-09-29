@@ -1,0 +1,17 @@
+---
+- name: Add appuser as a member of appgroup
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appgroup group exists
+      group:
+        name: appgroup
+        state: present
+
+    - name: Add appuser to appgroup
+      user:
+        name: appuser
+        groups: appgroup
+        append: true

@@ -1,0 +1,12 @@
+---
+- name: Ensure unzip is installed
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install unzip
+      ansible.builtin.apt:
+        name: unzip
+        state: present
+        update_cache: true

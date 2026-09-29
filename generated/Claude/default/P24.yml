@@ -1,0 +1,15 @@
+---
+- name: Ensure a daily cron job exists at 02:00 to run /usr/local/bin/myapp-backup.sh
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure daily backup cron job exists
+      ansible.builtin.cron:
+        name: "myapp daily backup"
+        minute: "0"
+        hour: "2"
+        job: "/usr/local/bin/myapp-backup.sh"
+        state: present
+        user: root

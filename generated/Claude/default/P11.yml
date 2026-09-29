@@ -1,0 +1,11 @@
+---
+- name: Create the user account appuser
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure appuser user account exists
+      user:
+        name: appuser
+        state: present

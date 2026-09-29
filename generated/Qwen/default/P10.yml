@@ -1,0 +1,12 @@
+---
+- name: Ensure APP_MODE=production in /etc/myapp/app.conf
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Ensure APP_MODE=production exists in /etc/myapp/app.conf
+      ansible.builtin.lineinfile:
+        path: /etc/myapp/app.conf
+        regexp: '^APP_MODE='
+        line: 'APP_MODE=production'
+        state: present

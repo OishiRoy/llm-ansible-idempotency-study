@@ -1,0 +1,11 @@
+---
+- name: Ensure Apache2 is absent
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Remove Apache2 package
+      ansible.builtin.apt:
+        name: apache2
+        state: absent

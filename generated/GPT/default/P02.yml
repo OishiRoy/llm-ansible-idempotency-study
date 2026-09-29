@@ -1,0 +1,12 @@
+---
+- name: Install Git
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Git is installed
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: true

@@ -1,0 +1,19 @@
+Model,Category,Total_Playbooks,Functionally_Correct,Eligible,Repeatedly_Idempotent,Non_Idempotent,Idempotency_Rate_Percent
+GPT,Configuration & Scheduled Tasks,5,5,5,5,0,100.00
+GPT,File & Directory Management,5,5,5,5,0,100.00
+GPT,Package Management,5,5,5,5,0,100.00
+GPT,Service Management,5,5,5,5,0,100.00
+GPT,System & Environment Management,5,5,5,5,0,100.00
+GPT,User & Permission Management,5,5,5,5,0,100.00
+Claude,Configuration & Scheduled Tasks,5,4,4,4,0,100.00
+Claude,File & Directory Management,5,5,5,5,0,100.00
+Claude,Package Management,5,5,5,4,1,80.00
+Claude,Service Management,5,5,5,5,0,100.00
+Claude,System & Environment Management,5,5,5,5,0,100.00
+Claude,User & Permission Management,5,5,5,5,0,100.00
+Qwen,Configuration & Scheduled Tasks,5,5,5,5,0,100.00
+Qwen,File & Directory Management,5,5,5,5,0,100.00
+Qwen,Package Management,5,4,4,4,0,100.00
+Qwen,Service Management,5,5,5,5,0,100.00
+Qwen,System & Environment Management,5,5,5,5,0,100.00
+Qwen,User & Permission Management,5,5,5,5,0,100.00

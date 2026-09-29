@@ -1,0 +1,17 @@
+---
+- name: Install and hold curl
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install curl using the currently available version
+      ansible.builtin.apt:
+        name: curl
+        state: present
+        update_cache: true
+
+    - name: Hold the installed curl version
+      ansible.builtin.dpkg_selections:
+        name: curl
+        selection: hold

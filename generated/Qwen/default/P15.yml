@@ -1,0 +1,23 @@
+--- 
+
+- name: Set ownership of /opt/myapp to appuser:appgroup on Ubuntu 22.04 
+
+  hosts: localhost 
+
+  connection: local 
+
+  become: true 
+
+ 
+
+  tasks: 
+
+    - name: Set ownership of /opt/myapp to appuser:appgroup 
+
+      ansible.builtin.file: 
+
+        path: /opt/myapp 
+
+        owner: appuser 
+
+        group: appgroup 

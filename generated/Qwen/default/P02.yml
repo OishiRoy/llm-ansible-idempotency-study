@@ -1,0 +1,16 @@
+---
+- name: Install Git on Ubuntu 22.04
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Git
+      ansible.builtin.apt:
+        name: git
+        state: present

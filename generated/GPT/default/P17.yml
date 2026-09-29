@@ -1,0 +1,11 @@
+---
+- name: Ensure Nginx service is enabled at boot
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Ensure Nginx is enabled at boot
+      ansible.builtin.service:
+        name: nginx
+        enabled: true
