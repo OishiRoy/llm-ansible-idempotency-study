@@ -7,7 +7,7 @@ Ansible Playbooks: A Repeated-Execution Study.”**
 The study investigates the functional correctness and repeated-execution
 idempotency of LLM-generated Ansible playbooks. A benchmark of 30
 configuration-management tasks was evaluated across three large language
-models (LLMs), resulting in 90 generated playbooks.
+models (LLMs), resulting in 90 model-task playbooks.
 
 The repository preserves the prompts, generated playbooks, benchmark
 definitions, evaluation scripts, execution logs, processed results, and
@@ -17,7 +17,7 @@ figures used in the study.
 
 ## Research Scope
 
-The study addresses two distinct properties of generated Ansible
+The study evaluates two distinct properties of generated Ansible
 playbooks:
 
 - **Functional correctness:** whether a generated playbook successfully
@@ -67,3 +67,160 @@ This produced a total of **90 model-task playbooks**.
 ├── Dockerfile.benchmark     # Controlled benchmark environment
 ├── prompt_yaml_audit.txt    # Prompt/YAML audit information
 └── README.md
+```
+
+The `generated/` directory contains the exact playbooks evaluated in the
+study. The corresponding execution evidence and processed experimental
+outcomes are available in the `logs/` and `results/` directories.
+
+---
+
+## Experimental Workflow
+
+The experimental workflow consists of the following stages:
+
+1. Benchmark task design
+2. Prompt construction and LLM-based playbook generation
+3. Controlled environment preparation
+4. Syntax validation and initial execution
+5. Functional verification
+6. Repeated-execution idempotency assessment
+7. Implementation and comparative analysis
+
+A generated playbook proceeds to repeated-execution assessment only after
+it successfully establishes the intended system state.
+
+Functionally correct playbooks are then executed repeatedly in the same
+environment. Execution status and Ansible-reported change counts are
+recorded for each run to assess repeated-execution idempotency.
+
+A controlled state-perturbation evaluation is additionally performed on
+selected tasks to examine recovery behavior and post-recovery stability.
+
+---
+
+## Experimental Environment
+
+The experiments were conducted in a controlled Docker-based Ubuntu 22.04
+environment. The repository includes `Dockerfile.benchmark`, which
+documents the container environment used for benchmark execution.
+
+The evaluation pipeline uses Ansible together with task-specific
+verification rules to execute the generated playbooks and verify whether
+the requested system state has been established.
+
+The experimental setup includes:
+
+- Ubuntu 22.04
+- Docker
+- Ansible Core
+- Python
+- Molecule
+- `community.general` Ansible collection
+
+---
+
+## Reproducing the Experiments
+
+The scripts required to execute and analyze the experiments are provided
+in the `scripts/` directory.
+
+The primary experiment runner is:
+
+```text
+scripts/run_experiment.py
+```
+
+Additional scripts are provided for batch execution, result processing,
+analysis, and controlled state-perturbation experiments.
+
+### Requirements
+
+Before running the experiments, ensure that Docker and the required
+software dependencies are installed and available.
+
+### Execution
+
+Exact command-line instructions for reproducing the experiments will be
+added after verification of the final experiment scripts.
+
+---
+
+## Evaluation Outputs
+
+Experimental outputs are organized primarily under:
+
+```text
+results/
+logs/
+```
+
+The `results/` directory contains processed experimental results and
+summary files used in the analysis.
+
+The `logs/` directory contains execution-level and functional-verification
+evidence generated during the experiments.
+
+Figures produced from the experimental results are available in:
+
+```text
+figures/
+```
+
+Together, these artifacts provide traceability between the generated
+playbooks, their execution behavior, verification outcomes, and the
+results reported in the study.
+
+---
+
+## Reproducibility Notes
+
+The playbooks stored in `generated/` are the exact artifacts evaluated in
+the reported experiments and should be used when reproducing the reported
+results.
+
+Regenerating the playbooks using external LLM services is not required
+for reproducing the evaluation. Newly generated outputs may differ because
+model implementations, inference settings, or service configurations can
+change over time.
+
+The repository therefore preserves the evaluated generation artifacts
+separately from the execution and analysis pipeline.
+
+---
+
+## Results
+
+Machine-readable experimental results are available in the `results/`
+directory, while execution and verification evidence is retained in
+`logs/`.
+
+The associated paper reports the aggregate analysis and interpretation of
+these experimental results.
+
+---
+
+## Artifact Availability
+
+This repository accompanies the associated research paper and is intended
+to support inspection and reproduction of the reported experiments.
+
+A versioned archival release of the replication package will be deposited
+on Zenodo. The archival DOI will be added after the release is created.
+
+---
+
+## Citation
+
+If you use the benchmark, code, experimental artifacts, or results from
+this repository, please cite the associated paper and the archived Zenodo
+release.
+
+Citation information will be added after publication and archival release.
+
+---
+
+## License
+
+The license governing reuse of this repository will be specified in the
+`LICENSE` file included with the archival release.
